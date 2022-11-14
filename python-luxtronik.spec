@@ -6,7 +6,8 @@ Release:        1%{?dist}
 License:        MIT
 Summary:        Library to interact with a Luxtronik heatpump controller
 URL:            https://github.com/Bouni/python-luxtronik
-Source:         %{pypi_source}
+Source0:        %{pypi_source}
+Source1:        dump-luxtronik.py
 
 BuildRequires:  python3-devel
 
@@ -28,6 +29,8 @@ Summary:        %{summary}
 %autosetup -n %{srcname}-%{version}
 %generate_buildrequires
 %pyproject_buildrequires
+
+cp %{SOURCE1} .
 
 %build
 %pyproject_wheel
